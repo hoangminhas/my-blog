@@ -1,0 +1,54 @@
+body {
+    width: 50%;
+    padding-bottom: 45px;
+    margin: auto;
+    background-color: white;
+    background-image: url(https://i.pinimg.com/originals/35/fc/b6/35fcb6cd0efa39c7f3d3a966d2659548.jpg);
+    background-size: auto;
+}
+
+/* headline adjustment */
+header {
+    text-align: center;
+    background-color: orange;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Courier New, monospace;
+    font-size: 22px;
+}
+header p {
+    position: relative;
+    bottom: 15px;
+}
+
+/* main adjustment */
+main {
+    background-color: orange;
+    padding: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 10px auto;
+
+}
+
+.form-group input {
+    height: 3.2em;
+}
+
+.input-control1 {
+    height: 1.5rem;
+    border: 1px;
+}
+#dropdown {
+    height: 2rem;
+}
+
+button {
+    height: 2rem;
+}
+

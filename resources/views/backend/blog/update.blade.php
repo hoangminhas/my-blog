@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-<form action="" method="POST">
+<form action="{{route('blog.update', $post->id)}}" method="POST">
     @csrf
+    <input type="hidden" name="_method" value="PUT">
     <input type="text" name="author" value="{{$post->author}}"><br>
     <input type="text" name="name" value="{{$post->name}}"><br>
-    <textarea name="content" id="" cols="30" rows="10">{{$post->content}}</textarea><br>
+    <textarea name="content" id="content" cols="30" rows="10">{{$post->content}}</textarea><br>
     <button>Update</button>
 </form>
 </body>

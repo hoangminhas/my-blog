@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         //
         $posts = Post::all();
-        return view('blog.index', compact('posts'));
+        return view('backend.blog.index', compact('posts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('blog.create');
+        return view('backend.blog.create');
     }
 
     /**
@@ -39,13 +39,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $post = $request->except('_token');
-
-        $data = new Post();
-        $data->author = $post['author'];
-        $data->name = $post['name'];
-        $data->content = $post['content'];
-        $data->save();
+        $post = new Post();
+        $post->author = $request->author;
+        $post->name = $request->name;
+        $post->content = $request->content;
+        $post->save();
         return redirect()->route('blog.index');
     }
 
@@ -59,7 +57,7 @@ class PostController extends Controller
     {
         //
         $post = Post::find($id);
-        return view('blog.show', compact('post'));
+        return view('backend.blog.show', compact('post'));
     }
 
     /**
@@ -72,7 +70,7 @@ class PostController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-        return view('blog.update', compact('post'));
+        return view('backend.blog.update', compact('post'));
     }
 
     /**
@@ -85,6 +83,12 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findOrFail($id);
+        $post->author = $request->author;
+        $post->name = $request->name;
+        $post->content = $request->content;
+        $post->save();
+        return redirect()->route('blog.index');
     }
 
     /**
