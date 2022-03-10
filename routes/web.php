@@ -46,3 +46,8 @@ Route::post('signup', [AuthController::class, 'signup'])->name('signup');
 
 //logout
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+//make shopping cart
+Route::get('cart', [PostController::class, 'cart'])->name('cart');
+
+Route::get('user', [\App\Http\Controllers\UserController::class, 'index'])->name('user.index');

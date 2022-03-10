@@ -46,14 +46,13 @@
                    placeholder='*******'>
             <p style="color: red">{{$errors->has('confirmPassword') ? $errors->first('confirmPassword') : ""}}</p>
         </div>
-    {{--        <div class='form-group'>--}}
-    {{--            <label for="gender">Gender</label>--}}
-    {{--            <select id='dropdown' class='input-control1' requỉred>--}}
-    {{--                <option value="male">Male</option>--}}
-    {{--                <option value="female">Female</option>--}}
-    {{--                <option value="nonbinary">Nobinary</option>--}}
-    {{--            </select>--}}
-    {{--        </div>--}}
+            <div class='form-group'>
+                <label for="dropdown">Select Role</label>
+                <select id='dropdown' name="role_id" class='input-control1'>
+                    <option value="1">Admin</option>
+                    <option value="2">Member</option>
+                </select>
+            </div><br>
 
     <!-- Selecting section -->
 {{--        <div class='form-group'>--}}
@@ -105,6 +104,7 @@
         <!-- submit button -->
         <div class='form-group'>
             <button id='submit' type="submit" value='submit'>Submit</button>
+            <button type="button"><a style="color: black;text-decoration: none" href="{{route('login')}}">Login</a></button>
         </div>
 
     </form>

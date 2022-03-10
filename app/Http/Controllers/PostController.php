@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +17,13 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('created_at');
         return view('backend.blog.index', compact('posts'));
+    }
+
+    public function cart()
+    {
+
     }
 
     /**
@@ -43,6 +50,7 @@ class PostController extends Controller
         $post->author = $request->author;
         $post->name = $request->name;
         $post->content = $request->content;
+        $post->category_id = $request->category_id;
         $post->save();
         return redirect()->route('blog.index');
     }
@@ -80,13 +88,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         //
         $post = Post::findOrFail($id);
         $post->author = $request->author;
         $post->name = $request->name;
         $post->content = $request->content;
+        $post->category_id = $request->category_id;
         $post->save();
         return redirect()->route('blog.index');
     }

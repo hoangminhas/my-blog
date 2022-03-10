@@ -21,12 +21,6 @@
                 $(this).hide();
             });
 
-            $("h1").mouseenter(function () {
-               alert("Welcome Guest!");
-            });
-            $("h1").mouseleave(function () {
-                alert("Goodbye Guest!");
-            });
         });
     </script>
 </head>
@@ -34,7 +28,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="index.html">A @minhthemeow Production</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -76,8 +70,10 @@
                 <p class="post-meta">
                     Posted by
                     <a href="#!">{{$post->author}}</a>
-                    on September 24, 2021
+                    on {{$post->created_at}}
                 </p>
+                <button class="btn btn-warning"><a href="{{route('blog.edit', $post->id)}}">Update</a></button>
+                <button onclick="return confirm('Are you sure?')" class="btn btn-danger"><a class="text-light" href="{{route('blog.destroy', $post->id)}}">Delete</a></button>
             </div>
             <!-- Divider-->
             <hr class="my-4" />

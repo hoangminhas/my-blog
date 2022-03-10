@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/styleLogin.css">
 </head>
 <body>
-<h2>Login</h2>
+<div class="login">
+    <h1>Login</h1>
+    <form action="{{route('login')}}" method="post">
+        @csrf
+        <input type="email" name="email" placeholder="Email" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <button type="button" class="btn btn-primary btn-block btn-large"><a style="color: white; text-decoration: none" href="{{route('showFormSignup')}}">Sign Up</a></button>
+    </form>
+</div>
+{{--<h2>Login</h2>--}}
 
-<form action="{{route('login')}}" method="POST">
-    @csrf
-    <input type="text" name="email" placeholder="email"><br>
-    <input type="password" name="password" placeholder="password"><br>
-    <button>Login</button>
-    <button type="button"><a href="{{route('showFormSignup')}}">Sign Up</a></button>
-</form>
+{{--<form action="{{route('login')}}" method="POST">--}}
+{{--    @csrf--}}
+{{--    <input type="text" name="email" placeholder="email"><br>--}}
+{{--    <input type="password" name="password" placeholder="password"><br>--}}
+{{--    <button>Login</button>--}}
+{{--    <button type="button"><a href="{{route('showFormSignup')}}">Sign Up</a></button>--}}
+{{--</form>--}}
 </body>
 </html>
