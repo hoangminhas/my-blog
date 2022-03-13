@@ -8,6 +8,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset("css/user/styleUser.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #animation{
+            animation-name: barz;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            height: 50px;
+            width: 50px;
+            position: relative;
+            top: 0;
+            border-radius: 50px;
+        }
+        @keyframes barz {
+            0%{
+                background: linear-gradient(35deg, #f0ad4e, #f1b0b7);
+                top: 0;
+            }
+            50%{
+                background: linear-gradient(65deg, #3F7F7F, #c2d94c);
+                top: 820px;
+            }
+            100%{
+                background: linear-gradient(90deg, #a0cfee, #2aa198);
+                top: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 <table cellspacing="0" cellpadding="0" class="user-table">
@@ -47,6 +73,8 @@
         </tr>
     @endforeach
     </tbody>
+    <br>
+    <div id="animation"></div>
 {{--    <tr>--}}
 {{--        <th>--}}
 {{--            <h5>Hannah West</h5>--}}

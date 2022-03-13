@@ -41,8 +41,11 @@ class AuthController extends Controller
         $user = $request->except("_token");
         // dd($user);
         if(Auth::attempt($user)) {
+            $request->session()->push('login', true);
             return redirect()->route('blog.index');
         } else {
+            $msg = 'Login Fail!';
+            $request->session()->flash('login-fail', $msg);
             return redirect()->back();
         }
     }

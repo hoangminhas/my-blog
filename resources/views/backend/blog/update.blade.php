@@ -18,14 +18,7 @@
     <textarea name="content" id="content" cols="30" rows="10">{{$post->content}}</textarea><br>
     <p style="color: red">{{$errors->has('content') ? $errors->first('content') : ""}}</p>
     <input id="category_id" type="text" name="category_id" value="{{$post->category->name}}" readonly>
-    <button>Update</button>
+    <button value="1">Update</button>
 </form>
-<script>
-    $(document).ready(function () {
-        $("button").click(function () {
-            $("#category_id").attr("value", {{$post->category_id}})
-        })
-    })
-</script>
 </body>
 </html>

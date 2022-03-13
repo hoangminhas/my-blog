@@ -14,8 +14,10 @@
         @csrf
         <input type="email" name="email" placeholder="Email" required="required" />
         <input type="password" name="password" placeholder="Password" required="required" />
+    <p style="color: red">{{\Illuminate\Support\Facades\Session::has('login-fail') ? \Illuminate\Support\Facades\Session::get('login-fail') : ""}}</p>
         <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
         <button type="button" class="btn btn-primary btn-block btn-large"><a style="color: white; text-decoration: none" href="{{route('showFormSignup')}}">Sign Up</a></button>
+        <button type="button" class="btn btn-primary btn-block btn-large"><a style="color: white; text-decoration: none" href="{{route('google.auth')}}">Login with Google</a></button>
     </form>
 </div>
 {{--<h2>Login</h2>--}}
