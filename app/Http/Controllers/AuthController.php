@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,13 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //
+    public $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function showFormSignup() {
         return view('backend.auth.signup');
     }
@@ -38,9 +46,8 @@ class AuthController extends Controller
     }
 
     public function login(LoginRequest $request) {
-        $user = $request->except("_token");
-        // dd($user);
-        if(Auth::attempt($user)) {
+
+        if($this->userService->login($request)) {
             $request->session()->push('login', true);
             return redirect()->route('blog.index');
         } else {

@@ -137,7 +137,6 @@ class PostController extends Controller
         $post->author = $request->author;
         $post->name = $request->name;
         $post->content = $request->content;
-        $post->category_id = $request->category_id;
         $post->save();
         return redirect()->route('blog.index');
     }
