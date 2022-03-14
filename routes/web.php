@@ -22,6 +22,11 @@ Route::get('/', function () {
 });
 
 Route::middleware('checkAuth')->group(function() {
+    Route::prefix('user')->group(function () {
+        //crud Users
+        Route::get('', [UserController::class, 'index'])->name('user.index');
+    });
+
     Route::prefix('blog')->group(function(){
         //Show index posts
         Route::get('', [PostController::class, 'index'])->name('blog.index');
@@ -61,7 +66,6 @@ Route::patch('update-cart', [PostController::class, 'updateCart'])->name('cart.u
 Route::delete('remove-from-cart', [PostController::class, 'removeFromCart'])->name('cart.remove');
 
 
-//crud Users
-Route::get('user', [UserController::class, 'index'])->name('user.index');
+
 
 

@@ -12,4 +12,6 @@ class PostRepository extends BaseRepository
         // TODO: Implement getModel() method.
         return Post::class;
     }
+
+
 }

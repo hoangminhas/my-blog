@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset("css/user/styleUser.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
         #animation{
             animation-name: barz;
             animation-duration: 5s;
@@ -36,6 +37,7 @@
     </style>
 </head>
 <body>
+<div id="animation"></div>
 <table cellspacing="0" cellpadding="0" class="user-table">
     <thead>
         <tr id="user-table-top">
@@ -68,14 +70,12 @@
             <th>
                 <h5>{{$user->role->name}}</h5>
             </th>
-            <th><button><i class="fa fa-edit"></i></button></th>
-            <th><button><i class="fa fa-ban" style="color: red"></i></button></th>
+            <th><button><a href="#"><i class="fa fa-edit"></i></a></button></th>
+            <th><button><a href="#"><i class="fa fa-ban" style="color: red"></i></a></button></th>
         </tr>
     @endforeach
     </tbody>
-    <br>
-    <div id="animation"></div>
-{{--    <tr>--}}
+    {{--    <tr>--}}
 {{--        <th>--}}
 {{--            <h5>Hannah West</h5>--}}
 {{--        </th>--}}

@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserService extends BaseService
 {
@@ -26,6 +28,9 @@ class UserService extends BaseService
 
     public function register($request)
     {
-        $data = $request->all();
+        $data = $request->except('_token');
+        $data['password'] = Hash::make($data['password']);
+        User::create($data);
+        return $this->sendResponse($data, "Create success");
     }
 }

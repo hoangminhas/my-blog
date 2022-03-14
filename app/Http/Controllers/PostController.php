@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateRequest;
 use App\Models\Post;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public $postService;
+
+    public function __construct(PostService $postService)
+    {
+        $this->postService = $postService;
+    }
 
     /**
      * Display a listing of the resource.
@@ -17,7 +24,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all()->sortByDesc('created_at');
+        $posts = $this->postService->getAllPost();
+//        $posts = Post::all()->sortByDesc('created_at');
         return view('backend.blog.index', compact('posts'));
     }
 

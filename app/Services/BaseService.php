@@ -4,29 +4,28 @@ namespace App\Services;
 
 class BaseService
 {
-    public function sendResponse($data, $msg, $code = 200)
+    public function sendResponse($result, $msg)
     {
         $response = [
             "success" => true,
-            "data" => $data,
+            "data" => $result,
             "message" => $msg
         ];
 
-        return response()->json($response, $code);
+        return response()->json($response, 200);
     }
 
-    public function sendError($data, $msg = [], $code = 404)
+    public function sendError($error, $errorMsg = [], $code = 404)
     {
         $response = [
             "success" => false,
-            "msg" => $msg
+            "message" => $error
         ];
 
-        if (!empty($msg)) {
-            $response['data'] = $msg;
+        if (!empty($errorMsg)) {
+            $response['data'] = $errorMsg;
         }
 
         return response()->json($response, $code);
     }
-
 }

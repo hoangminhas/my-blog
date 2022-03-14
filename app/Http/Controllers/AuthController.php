@@ -30,14 +30,8 @@ class AuthController extends Controller
             'password'=>'bail|required|min:6',
             'confirmPassword'=>'bail|required|same:password'
         ]);
-// dd($request);
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->role_id = $request->role_id;
-        $user->email_verified_at = now();
-        $user->save();
+
+        $response = $this->userService->register($request);
         return redirect()->route('login');
     }
 

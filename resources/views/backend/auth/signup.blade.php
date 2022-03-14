@@ -47,10 +47,10 @@
             <p style="color: red">{{$errors->has('confirmPassword') ? $errors->first('confirmPassword') : ""}}</p>
         </div>
             <div class='form-group'>
-                <label for="dropdown">Select Role</label>
+{{--                <label for="dropdown">Select Role</label>--}}
                 <select id='dropdown' name="role_id" class='input-control1'>
-                    <option value="1">Admin</option>
-                    <option value="2">Member</option>
+{{--                    <option value="1">Admin</option>--}}
+                    <option value="2" selected>Member</option>
                 </select>
             </div><br>
 
